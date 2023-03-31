@@ -11,3 +11,4 @@ Feature: Kullanici sepete bir urun ekler ve sepet simgesi uzerinde bu urun sayis
     And Kullanici bir paketi buy now butonu ile sepete ekler
     And Kullanici ana sayfaya tekrar geri gider
     Then  Kullanici sepet simgesi uzerindeki rakami dogrular
+    And taraciyi kapatir
