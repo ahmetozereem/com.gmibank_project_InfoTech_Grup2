@@ -1,4 +1,4 @@
 Feature: ibrahim branch denemesi
 
   @US002
-  Scenario:
+  Scenario: ibrahim deneme 2
