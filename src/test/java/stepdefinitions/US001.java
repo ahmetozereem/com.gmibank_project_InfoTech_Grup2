@@ -54,4 +54,8 @@ public class US001 {
         System.out.println("actualValue = " + actualValue);
         Assert.assertTrue(actualValue.equals(expectedValue));
     }
+
+    @And("taraciyi kapatir")
+    public void taraciyiKapatir() {
+    }
 }
