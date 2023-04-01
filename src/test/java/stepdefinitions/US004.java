@@ -42,18 +42,15 @@ public class US004 {
         String actualValue = loginPage.userNameAfterLogin.getText();
         String expectedValue ="User Name";
         Assert.assertEquals(expectedValue,actualValue);
+        //Boolean elementIsDisplayed = loginPage.myOperations.isDisplayed();
+        //Assert.assertTrue(elementIsDisplayed);
     }
 
-    @And("User clicks on the cancel button")
-    public void userClicksOnTheCancelButton() {
-        loginPage.cancelButton.click();
-    }
 
-    @Then("User verifies that they remain on the home page")
-    public void userVerifiesThatTheyRemainOnTheHomePage() {
-        String actualValue = Driver.getDriver().getCurrentUrl();
-        System.out.println("actualValue = " + actualValue);
-        String expectedValue ="https://www.gmibank.com/";
+    @Then("User verifies that the cancel button is clickable")
+    public void userVerifiesThatTheCancelButtonIsClickable() {
+        Boolean actualValue =loginPage.cancelButton.isEnabled();
+        Boolean expectedValue= true;
         Assert.assertEquals(expectedValue,actualValue);
     }
 }

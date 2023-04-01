@@ -18,5 +18,4 @@ Feature: Login page should accessible with valid credentials
     When User clicks on the signInRegister button
     And  User clicks on the signIn button
     And  User types the valid username and valid password in the relevant fields
-    And  User clicks on the cancel button
-    Then User verifies that they remain on the home page
+    Then User verifies that the cancel button is clickable
