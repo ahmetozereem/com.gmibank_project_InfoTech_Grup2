@@ -46,5 +46,13 @@ Feature: System should allow any user to register with valid credentials
       And Enters the appropriate new password
       Then Checks that there is no warning under the new password
 
+    Scenario: Email format must contains "@" and "." extensions
+
+      When User clicks the user button
+      And User clicks on register tab
+      And Enters the appropriate emailAdress
+      Then Checks that there is no warning under the emailAdress
+
+
 
 

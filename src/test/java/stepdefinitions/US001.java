@@ -104,4 +104,16 @@ public class US001 {
 
         Assert.assertFalse(us001.passwordCheck.isDisplayed());
     }
+
+    @And("Enters the appropriate emailAdress")
+    public void entersTheAppropriateEmailAdress() {
+
+        us001.email.sendKeys("okanburuk@hotmail.com");
+    }
+
+    @Then("Checks that there is no warning under the emailAdress")
+    public void checksThatThereIsNoWarningUnderTheEmailAdress() {
+
+        Assert.assertFalse(us001.emailCheck.isDisplayed());
+    }
 }

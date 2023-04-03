@@ -50,6 +50,12 @@ public class US001_Page {
     @FindBy(xpath = "//div[normalize-space()='Your password is required.']")
     public WebElement passwordCheck;
 
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement email;
+
+    @FindBy(xpath = "//div[normalize-space()='Please enter your email.']")
+    public WebElement emailCheck;
+
 
 }
 
