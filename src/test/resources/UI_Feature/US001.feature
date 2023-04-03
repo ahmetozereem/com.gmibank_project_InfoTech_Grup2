@@ -16,12 +16,35 @@ Feature: System should allow any user to register with valid credentials
     When User clicks the user button
     And User clicks on register tab
     And Enters the appropriate name
-    And Checks that there is no warning under the name
+    Then Checks that there is no warning under the name
 
-  Scenario: The last name must contains chars and
+  Scenario: The last name must contains chars and not be blank
 
     When User clicks the user button
     And User clicks on register tab
     And Enters the appropriate lastname
-    And Checks that there is no warning under the lastname
+    Then Checks that there is no warning under the lastname
+
+  Scenario: The adress must contains  chars and digit
+
+    When User clicks the user button
+    And User clicks on register tab
+    And Enters the appropriate adress
+    Then Checks that there is no warning under the adress
+
+  Scenario: Phone number must contains 10 digits
+
+    When User clicks the user button
+    And User clicks on register tab
+    And Enters the appropriate Phone Number
+    Then Checks that there is no warning under the Phone number
+
+    Scenario: New password must contains char and digits and special character
+
+      When User clicks the user button
+      And User clicks on register tab
+      And Enters the appropriate new password
+      Then Checks that there is no warning under the new password
+
+
 

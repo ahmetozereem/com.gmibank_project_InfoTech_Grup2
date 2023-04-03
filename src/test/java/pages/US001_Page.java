@@ -31,6 +31,26 @@ public class US001_Page {
 
     @FindBy(xpath = "//div[normalize-space()='Please enter your last name.']")
     public WebElement lastNameCheck;
+
+    @FindBy(xpath = "//input[@id='address']")
+    public  WebElement adress;
+
+    @FindBy(xpath = "//div[normalize-space()='Please enter your address.']")
+    public WebElement adresscheck;
+
+    @FindBy(xpath = "//input[@id='mobilephone']")
+    public WebElement phoneNumber;
+
+    @FindBy(xpath = "//div[normalize-space()='Please enter your mobile phone number.']")
+    public WebElement phoneNumberCheck;
+
+    @FindBy(xpath = "//input[@id='firstPassword']")
+    public WebElement password;
+
+    @FindBy(xpath = "//div[normalize-space()='Your password is required.']")
+    public WebElement passwordCheck;
+
+
 }
 
 

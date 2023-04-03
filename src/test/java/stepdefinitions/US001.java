@@ -46,38 +46,62 @@ public class US001 {
 
     @Then("Checks that there is no warning under the SSN number")
     public void checksThatThereIsNoWarningUnderTheSSNNumber() {
-
         Assert.assertFalse(us001.ssnCheck.isDisplayed());
-
-
     }
 
     @And("Enters the appropriate name")
     public void entersTheAppropriateName() {
         us001.name.sendKeys("omer");
-
-
     }
 
     @And("Checks that there is no warning under the name")
     public void checksThatThereIsNoWarningUnderTheName() throws InterruptedException {
         Assert.assertFalse(us001.nameCheck.isDisplayed());
-
-
     }
-
-
     @And("Enters the appropriate lastname")
     public void entersTheAppropriateLastname() {
-
         us001.lastName.sendKeys("celik");
 
     }
 
     @And("Checks that there is no warning under the lastname")
     public void checksThatThereIsNoWarningUnderTheLastname() {
-
         Assert.assertFalse(us001.lastNameCheck.isDisplayed());
 
+    }
+
+    @And("Enters the appropriate adress")
+    public void entersTheAppropriateAdress() {
+
+        us001.adress.sendKeys("austrasse 176 74075 Heilbronn");
+    }
+
+    @Then("Checks that there is no warning under the adress")
+    public void checksThatThereIsNoWarningUnderTheAdress() {
+
+        Assert.assertFalse(us001.adresscheck.isDisplayed());
+    }
+
+    @And("Enters the appropriate Phone Number")
+    public void entersTheAppropriatePhoneNumber() {
+
+        us001.phoneNumber.sendKeys("1782344569");
+    }
+
+    @Then("Checks that there is no warning under the Phone number")
+    public void checksThatThereIsNoWarningUnderThePhoneNumber() {
+
+        Assert.assertFalse(us001.phoneNumberCheck.isDisplayed());
+    }
+
+    @And("Enters the appropriate new password")
+    public void entersTheAppropriateNewPassword() {
+        us001.password.sendKeys("Ankara123?");
+    }
+
+    @Then("Checks that there is no warning under the new password")
+    public void checksThatThereIsNoWarningUnderTheNewPassword() {
+
+        Assert.assertFalse(us001.passwordCheck.isDisplayed());
     }
 }
