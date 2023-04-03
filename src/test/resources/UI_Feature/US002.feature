@@ -1,1 +1,0 @@
-Feature: ibrahim branch denemesi

@@ -11,47 +11,73 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 public class US001 {
-    US001_Page us001Page = new US001_Page();
-    @Given("Kullanici ana sayfaya gider")
-    public void kullaniciAnaSayfayaGider() {
-        Driver.getDriver().get(ConfigReader.getProperty("url"));
-    }
 
-    @When("Kullanici Cookies ile ilgili onayi kabul eder")
-    public void kullaniciCookiesIleIlgiliOnayiKabulEder() {
-        try{
-            CommenSteps.waitForClickablility(us001Page.acceptAllCookies, 15);
-            us001Page.acceptAllCookies.click();
+    US001_Page us001 =new US001_Page();
+    @Given("user goes to home page")
+    public void userGoesToHomePage() throws InterruptedException {
+        try{Driver.getDriver().get(ConfigReader.getProperty("url"));}
 
-        }catch (Exception e) {
+        catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    @And("Kullanici ust menu bardan Pricing linkine tiklar")
-    public void kullaniciUstMenuBardanPricingLinkineTiklar() {
-        us001Page.pricingButton.click();
+    @When("User clicks the user button")
+    public void userClicksTheUserButton() throws InterruptedException {
+        CommenSteps.waitForClickablility(us001.userButton,10);
+        us001.userButton.click();
+
+
+
+
     }
 
-    @And("Kullanici bir paketi buy now butonu ile sepete ekler")
-    public void kullaniciBirPaketiBuyNowButonuIleSepeteEkler() {
-        us001Page.buyNowButton.click();
+    @And("User clicks on register tab")
+    public void userClicksOnRegisterTab() throws InterruptedException {
+        us001.registerButton.click();
+        Driver.wait(1);
+            }
+
+    @And("Enters the appropriate SSN number")
+    public void entersTheAppropriateSSNNumber() throws InterruptedException {
+        us001.ssnLogin.sendKeys("123-12-1234");
+
     }
 
-    @And("Kullanici ana sayfaya tekrar geri gider")
-    public void kullaniciAnaSayfayaTekrarGeriGider() {
-        try {
-            CommenSteps.waitForVisibility(us001Page.newPage,10);
-        }catch (Exception e) {e.printStackTrace();}
-        Driver.getDriver().navigate().back();
+    @Then("Checks that there is no warning under the SSN number")
+    public void checksThatThereIsNoWarningUnderTheSSNNumber() {
+
+        Assert.assertFalse(us001.ssnCheck.isDisplayed());
+
+
     }
 
-    @Then("Kullanici sepet simgesi uzerindeki rakami dogrular")
-    public void kullaniciSepetSimgesiUzerindekiRakamiDogrular() {
-        String expectedValue ="1";
-        String actualValue = us001Page.verifyOfNummerOfItems.getText();
-        System.out.println("expectedValue = " + expectedValue);
-        System.out.println("actualValue = " + actualValue);
-        Assert.assertTrue(actualValue.equals(expectedValue));
+    @And("Enters the appropriate name")
+    public void entersTheAppropriateName() {
+        us001.name.sendKeys("omer");
+
+
+    }
+
+    @And("Checks that there is no warning under the name")
+    public void checksThatThereIsNoWarningUnderTheName() throws InterruptedException {
+        Assert.assertFalse(us001.nameCheck.isDisplayed());
+
+
+    }
+
+
+    @And("Enters the appropriate lastname")
+    public void entersTheAppropriateLastname() {
+
+        us001.lastName.sendKeys("celik");
+
+    }
+
+    @And("Checks that there is no warning under the lastname")
+    public void checksThatThereIsNoWarningUnderTheLastname() {
+
+        Assert.assertFalse(us001.lastNameCheck.isDisplayed());
+
     }
 }

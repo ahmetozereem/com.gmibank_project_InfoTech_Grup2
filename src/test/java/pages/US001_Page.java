@@ -8,20 +8,30 @@ import utilities.Driver;
 public class US001_Page {
     public US001_Page () {PageFactory.initElements(Driver.getDriver(), this);}
 
-    @FindBy (css = "button#onetrust-accept-btn-handler")
-    public WebElement acceptAllCookies;
+    @FindBy (xpath = "//li[@id='account-menu']//a[@class='dropdown-toggle nav-link']")
+    public WebElement userButton;
 
-    @FindBy (css = "a[href='/purchase.aspx'][class='TK-Menu-Item-Link']")
-    public WebElement pricingButton;
+    @FindBy(xpath  ="//span[normalize-space()='Register']")
+    public WebElement registerButton;
 
-    @FindBy (css = "th[class='Complete'] div a")
-    public WebElement buyNowButton;
+    @FindBy(xpath="//input[@id='ssn']")
+    public WebElement ssnLogin;
 
-    @FindBy (css = "span[class='u-fr price-small e2e-total-price']")
-    public WebElement newPage;
+    @FindBy(xpath = "//div[normalize-space()='Please enter your social security number.']")
+    public WebElement ssnCheck;
 
-    @FindBy (css = "span[class='TK-Counter TK-Counter--SC TK-Counter--Visible']")
-    public WebElement verifyOfNummerOfItems;
+    @FindBy(xpath = "//input[@id='firstname']")
+    public WebElement name;
 
+    @FindBy(xpath = "//div[normalize-space()='Please enter your first name.']")
+    public WebElement nameCheck;
+
+    @FindBy(xpath = "//input[@id='lastname']")
+    public WebElement lastName;
+
+    @FindBy(xpath = "//div[normalize-space()='Please enter your last name.']")
+    public WebElement lastNameCheck;
 }
+
+
 
