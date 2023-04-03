@@ -5,13 +5,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import pages.US001_Page;
+import pages.ManageCustomersPage;
 import utilities.CommenSteps;
 import utilities.ConfigReader;
 import utilities.Driver;
 
 public class US001 {
-    US001_Page us001Page = new US001_Page();
+    ManageCustomersPage us001Page = new ManageCustomersPage();
     @Given("Kullanici ana sayfaya gider")
     public void kullaniciAnaSayfayaGider() {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
