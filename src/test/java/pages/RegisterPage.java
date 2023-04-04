@@ -17,45 +17,45 @@ public class RegisterPage {
     @FindBy(xpath="//input[@id='ssn']")
     public WebElement ssnLogin;
 
-    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-control']")
+    @FindBy(xpath = "(//input[@class='is-touched is-dirty av-valid form-control'])[1]")
     public WebElement ssnCheck;
     //div[normalize-space()='Please enter your social security number.']
-    //div[@class='invalid-feedback']
+
 
     @FindBy(xpath = "//input[@id='firstname']")
     public WebElement name;
 
-    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-control']")
+    @FindBy(xpath = "(//input[@class='is-touched is-dirty av-valid form-control'])[1]")
     public WebElement nameCheck;
 
     @FindBy(xpath = "//input[@id='lastname']")
     public WebElement lastName;
 
-    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-control']")
+    @FindBy(xpath = "(//input[@class='is-touched is-dirty av-valid form-control'])[1]")
     public WebElement lastNameCheck;
 
     @FindBy(xpath = "//input[@id='address']")
     public  WebElement adress;
 
-    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-control']")
+    @FindBy(xpath = "(//input[@class='is-touched is-dirty av-valid form-control'])[1]")
     public WebElement adresscheck;
 
     @FindBy(xpath = "//input[@id='mobilephone']")
     public WebElement phoneNumber;
 
-    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-control']")
+    @FindBy(xpath = "(//input[@class='is-touched is-dirty av-valid form-control'])[1]")
     public WebElement phoneNumberCheck;
 
     @FindBy(xpath = "//input[@id='firstPassword']")
     public WebElement password;
 
-    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-control']")
+    @FindBy(xpath = "(//input[@class='is-touched is-dirty av-valid form-control'])[1]")
     public WebElement passwordCheck;
 
     @FindBy(xpath = "//input[@id='email']")
     public WebElement email;
 
-    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-control']")
+    @FindBy(xpath = "(//input[@class='is-touched is-dirty av-valid form-control'])[1]")
     public WebElement emailCheck;
 
 
