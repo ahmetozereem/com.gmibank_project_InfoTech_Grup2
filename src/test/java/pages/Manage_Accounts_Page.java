@@ -21,4 +21,9 @@ public class Manage_Accounts_Page {
     @FindBy (xpath = "//a[@class='btn btn-info btn-sm']")
     public List<WebElement> views;
 
+    @FindBy(id="jh-create-entity")
+    public WebElement createANewAccount;
+
+
+
 }
