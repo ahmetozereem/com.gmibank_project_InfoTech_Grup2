@@ -46,8 +46,14 @@ public class RegisterPage {
     @FindBy(xpath = "(//input[@class='is-touched is-dirty av-valid form-control'])[1]")
     public WebElement phoneNumberCheck;
 
+    @FindBy(xpath = "//input[@id='username']")
+    public WebElement username;
+
     @FindBy(xpath = "//input[@id='firstPassword']")
     public WebElement password;
+
+    @FindBy(xpath = "//input[@id='secondPassword']")
+    public WebElement repassword;
 
     @FindBy(xpath = "(//input[@class='is-touched is-dirty av-valid form-control'])[1]")
     public WebElement passwordCheck;
@@ -57,6 +63,14 @@ public class RegisterPage {
 
     @FindBy(xpath = "(//input[@class='is-touched is-dirty av-valid form-control'])[1]")
     public WebElement emailCheck;
+
+    @FindBy(xpath ="//div[@class='Toastify__toast-body']")
+    public WebElement succesfullmessage;
+
+    @FindBy(xpath = "//button[@id='register-submit']//span[contains(text(),'Register')]")
+    public WebElement registerbuttonclick;
+
+
 
 
 }
