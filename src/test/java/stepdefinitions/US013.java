@@ -6,7 +6,9 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import pages.CreateAccountPage;
+import pages.Login_Page;
 import pages.Manage_Accounts_Page;
+import utilities.CommenSteps;
 import utilities.ConfigReader;
 import utilities.Driver;
 
@@ -19,6 +21,7 @@ public class US013 {
     CreateAccountPage createAccountPage= new CreateAccountPage();
     List<String> options=new ArrayList<>();
     List<String> optionsStatus=new ArrayList<>();
+    Login_Page loginPage= new Login_Page();
     @Given("Go to the GmiBank home page")
     public void go_to_the_gmi_bank_home_page() {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
@@ -48,13 +51,8 @@ public class US013 {
     }
     @Then("You should not see the error message under the textbox This field is required.")
     public void you_should_not_see_the_error_message_under_the_textbox_this_field_is_required() {
-        boolean a = false;
-        try{
-            createAccountPage.balanceFeedback.isDisplayed();
-        }catch (NoSuchElementException e){
-            a =true;
-        }
-        Assert.assertTrue(a);
+        CommenSteps.verifyElementNotDisplayed(createAccountPage.balanceFeedback);
+
     }
     @When("Enter a a number in the balance test box")
     public void enter_a_a_number_in_the_balance_test_box() {
@@ -64,14 +62,7 @@ public class US013 {
 
     @Then("I should not see the error message under the textbox This field should be a number.")
     public void i_should_not_see_the_error_message_under_the_textbox_this_field_should_be_a_number() {
-        boolean a = false;
-        try{
-            createAccountPage.balanceFeedback.isDisplayed();
-        }catch (NoSuchElementException e){
-            boolean b = true;
-            a =true;
-        }
-        Assert.assertTrue(a);
+        CommenSteps.verifyElementNotDisplayed(createAccountPage.balanceFeedback);
     }
     @When("Enter a character in the balance test box")
     public void enter_a_character_in_the_balance_test_box() {
@@ -152,4 +143,8 @@ public class US013 {
         Assert.assertFalse(allOptions.size()>1);
     }
 
+    @And("Provide the username of the applicant as employee")
+    public void provideTheUsernameOfTheApplicantAsEmployee() {
+        loginPage.userName.sendKeys(ConfigReader.getProperty("employeeSehri"));
+    }
 }

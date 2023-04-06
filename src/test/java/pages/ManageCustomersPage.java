@@ -12,6 +12,8 @@ public class ManageCustomersPage {
     public WebElement createANewCustomer;
 
 //*[@id="tp-customer-country"]/option[70]
+@FindBy(linkText = "Manage Customers")
+public WebElement getCreateANewCustomer2;
 
 }
 

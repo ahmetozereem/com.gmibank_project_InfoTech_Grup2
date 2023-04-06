@@ -242,6 +242,16 @@ public class CommenSteps {
         }
     }
 
+
+    public static void verifyElementNotDisplayed(WebElement element) {
+        try {
+            Assert.assertFalse( element.isDisplayed());
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+
+        }
+    }
+
     /**
      * This methods casts the driver to a JavascriptExecutor and returns it
      *

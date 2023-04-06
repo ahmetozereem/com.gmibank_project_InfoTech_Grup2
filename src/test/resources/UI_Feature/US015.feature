@@ -4,7 +4,7 @@ Feature: US_015 System should allow user to manage their account
   Background:
     Given Go to "https://gmibank.com/"
     When  you should navigate to sign in page
-    And Provide the username of the applicant
+    And Provide the username of the applicant as user
     And Provide the password of the applicant
     And Click on Sign In
 

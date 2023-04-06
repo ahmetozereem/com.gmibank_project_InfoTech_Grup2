@@ -17,8 +17,28 @@ public class CreateOrEditACustomerPage {
     @FindBy (css = "button[id=save-entity]") public WebElement saveButton;
     @FindBy (css = "a[id=cancel-save]") public WebElement backButton;
 
+    @FindBy(id = "tp-customer-createDate") public WebElement createDate;
 
+    @FindBy(xpath = "//select[@name='user.id']")  public WebElement user;
 
+    @FindBy(id = "tp-customer-zelleEnrolled")  public WebElement zelleEnrolled;
+
+    @FindBy(id = "tp-customer-account")  public WebElement account;
+
+    @FindBy(id = "search-ssn")  public WebElement ssn;
+
+    @FindBy(xpath = "//button[text()='Search']")  public WebElement selectButton;
+
+    @FindBy(id = "tp-customer-middleInitial")  public WebElement middleInitial;
+
+    @FindBy(id = "tp-customer-phoneNumber")  public WebElement phoneNumber;
+
+    @FindBy(id = "tp-customer-zipCode")  public WebElement zipCode;
+
+    @FindBy(id = "tp-customer-city")  public WebElement city;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement alert;
 
 }
 
