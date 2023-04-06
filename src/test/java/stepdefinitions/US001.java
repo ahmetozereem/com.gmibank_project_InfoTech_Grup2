@@ -1,6 +1,5 @@
 package stepdefinitions;
 
-import groovyjarjarasm.asm.tree.TryCatchBlockNode;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,11 +11,11 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 
-public class US001_1 {
+public class US001 {
     RegisterPage us001 =new RegisterPage();
 
-    @Given("user goes to home pages")
-    public void userGoesToHomePages() {
+    @Given("User goes to home pages")
+    public void UserGoesToHomePages() {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
     }
 

@@ -2,7 +2,7 @@ Feature: System should allow any user to register with valid credentials
   validating the success message
 
   Background:
-    Given user goes to home pages
+    Given User goes to home pages
 
   @US001_1
     Scenario: Check the succesfully message
@@ -22,6 +22,7 @@ Feature: System should allow any user to register with valid credentials
     Then Checks success message
 
   @USOO1_2
+    @Negative
 
   Scenario: Check the failed message
     When User clicks the user button

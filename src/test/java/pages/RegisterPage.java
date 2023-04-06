@@ -70,6 +70,37 @@ public class RegisterPage {
     @FindBy(xpath = "//button[@id='register-submit']//span[contains(text(),'Register')]")
     public WebElement registerbuttonclick;
 
+    @FindBy(xpath = "//div[normalize-space()='Please enter your social security number.']")
+    public WebElement ssnFailedCheck;
+
+    @FindBy(xpath = "//div[normalize-space()='Please enter your first name.']")
+    public WebElement nameFailedCheck;
+
+    @FindBy(xpath = "//div[normalize-space()='Please enter your last name.']")
+    public WebElement lastNameFailedCheck;
+
+    @FindBy(xpath = "//div[normalize-space()='Please enter your address.']")
+    public WebElement adressFailedCheck;
+
+    @FindBy(xpath = "//div[normalize-space()='Please enter your mobile phone number.']")
+    public WebElement phoneNumberFailedCheck;
+
+    @FindBy(xpath = "//div[normalize-space()='Your username is required.']")
+    public WebElement usernameFailedCheck;
+
+    @FindBy(xpath = "//div[normalize-space()='Please enter your email.']")
+    public WebElement emailFailedCheck;
+
+    @FindBy(xpath = "//div[normalize-space()='Your password is required.']")
+    public WebElement passwordFailedCheck;
+
+    @FindBy(xpath = "//div[normalize-space()='Your confirmation password is required.']")
+    public WebElement repasswordFailedCheck;
+
+
+
+
+
 
 
 
