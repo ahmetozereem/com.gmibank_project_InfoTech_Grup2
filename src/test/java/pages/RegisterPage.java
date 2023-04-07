@@ -103,6 +103,10 @@ public class RegisterPage {
     @FindBy(xpath = "//input[@id='mobilephone']")
     public WebElement telNumberInvalid;
 
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement emailinvalid;
+
+
 
 
 

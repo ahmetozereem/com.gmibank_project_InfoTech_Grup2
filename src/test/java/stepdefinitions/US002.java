@@ -139,4 +139,16 @@ public class US002 {
         Assert.assertNotEquals(expecteValue,actualValue);
 
     }
+
+    @And("User puts a special character without {string} and {string}")
+    public void userPutsASpecialCharacterWithoutAnd(String arg0, String arg1) throws InterruptedException {
+
+        us001.emailinvalid.sendKeys("omerfarukyeler&hotmail^com",Keys.TAB);
+        Driver.wait(2);
+    }
+
+    @Then("User checks the  email other failed")
+    public void userChecksTheEmailOtherFailed() {
+      Assert.assertTrue(us001.emailinvalid.getAttribute("class").contains("is-touched is-dirty av-invalid is-invalid form-control"));
+    }
 }
