@@ -97,6 +97,17 @@ public class RegisterPage {
     @FindBy(xpath = "//div[normalize-space()='Your confirmation password is required.']")
     public WebElement repasswordFailedCheck;
 
+    @FindBy(xpath = "//input[@id='ssn']")
+    public WebElement ssnInvalid;
+
+    @FindBy(xpath = "//input[@id='mobilephone']")
+    public WebElement telNumberInvalid;
+
+
+
+
+
+
 
 
 

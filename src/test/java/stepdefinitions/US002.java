@@ -8,6 +8,8 @@ import org.checkerframework.checker.units.qual.K;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.RegisterPage;
+import utilities.CommenSteps;
+import utilities.Driver;
 
 public class US002 {
 
@@ -56,6 +58,7 @@ public class US002 {
 
     @And("User leaves New password confirmation blank")
     public void userLeavesNewPasswordConfirmationBlank() {
+
         us001.repassword.sendKeys(Keys.TAB);
     }
 
@@ -109,31 +112,31 @@ public class US002 {
     }
 
     @And("User puts a special character other than {string} between numbers")
-    public void userPutsASpecialCharacterOtherThanBetweenNumbers(String arg0) {
+    public void userPutsASpecialCharacterOtherThanBetweenNumbers(String arg0) throws InterruptedException {
 
-       us001.ssnLogin.sendKeys("123?"+Keys.TAB);
-
-
-
+        us001.ssnLogin.sendKeys("123?12!1234"+Keys.TAB);
+        Driver.wait(3);
     }
 
     @Then("User checks the  social security number other failed")
     public void userChecksTheSocialSecurityNumberOtherFailed() {
-
-        Assert.assertTrue(us001.ssnLogin.getAttribute("placeholder").contains("000-00-0000"));
-
-
+        String expectedValue="123?12!1234";
+        String actualValue=us001.ssnInvalid.getAttribute("value");
+        Assert.assertNotEquals(expectedValue,actualValue);
 
     }
 
     @And("User puts a special character other than {string} between telephone  numbers")
     public void userPutsASpecialCharacterOtherThanBetweenTelephoneNumbers(String arg0) {
 
-        us001.phoneNumber.sendKeys("123?");
+        us001.phoneNumber.sendKeys("123?321?1234"+Keys.TAB);
     }
 
     @Then("User checks the  telephone number other failed")
     public void userChecksTheTelephoneNumberOtherFailed() {
-        Assert.assertTrue(us001.phoneNumber.getAttribute("pattern").contains("[0-9]{3}-[0-9]{3}-[0-9]{4}"));
+        String expecteValue="123?321?1234";
+        String actualValue =us001.telNumberInvalid.getAttribute("value");
+        Assert.assertNotEquals(expecteValue,actualValue);
+
     }
 }
