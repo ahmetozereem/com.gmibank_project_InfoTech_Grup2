@@ -6,13 +6,27 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.RegistrationPage;
+import pages.UserManagementPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
 public class US017 {
 
+    String ssn;
+    String firstname;
+    String lastname;
+    String address;
+    String phone;
+    String userName;
+    String email;
+    String password;
+
+
     RegistrationPage page=new RegistrationPage();
+    UserManagementPage userManagementPage=new UserManagementPage();
     Faker faker=new Faker();
 
 
@@ -36,15 +50,15 @@ public class US017 {
 
     @And("user fills out all credentials")
     public void userFillsOutAllCredentials() {
-        String ssn=faker.idNumber().ssnValid();
-        String firstname=faker.name().firstName();
-        String lastname=faker.name().lastName();
-        String address=faker.address().streetAddress();
-        String phone=faker.phoneNumber().cellPhone();
-        String userName=firstname+lastname;
-        String email=firstname+lastname+"@gmail.com";
-        String password=faker.internet().password(6,12,true,true,true);
-
+        ssn=faker.idNumber().ssnValid();
+        firstname=faker.name().firstName();
+        lastname=faker.name().lastName();
+        address=faker.address().streetAddress();
+        phone=faker.phoneNumber().cellPhone();
+        userName=firstname+lastname;
+        email=firstname+lastname+"@gmail.com";
+        password=faker.internet().password(12,12,true,true,true);
+        System.out.println(firstname+" "+lastname+"\n"+userName);
 
         page.ssnBox.sendKeys(ssn);
         page.firstName.sendKeys(firstname);
@@ -68,5 +82,54 @@ public class US017 {
         Driver.wait(1);
         Assert.assertTrue(page.registrationSaved.isDisplayed());
 
+    }
+
+    @And("user clicks on sign in link")
+    public void userClicksOnSignInLink() {
+        userManagementPage.signInLink.click();
+    }
+
+    @And("user sends {string} to username box")
+    public void userSendsToUsernameBox(String adminUsername) {
+        userManagementPage.usernameBox.sendKeys(adminUsername);
+    }
+
+    @And("user sends {string} to password box")
+    public void userSendsToPasswordBox(String adminPassword) {
+        userManagementPage.passwordBox.sendKeys(adminPassword);
+    }
+
+    @And("user clicks on sign in button")
+    public void userClicksOnSignInButton() {
+        userManagementPage.signInButton.click();
+    }
+
+    @And("user clicks on administration link")
+    public void userClicksOnAdministrationLink() {
+        userManagementPage.administrationLink.click();
+    }
+
+    @And("user clicks on user management link")
+    public void userClicksOnUserManagementLink() {
+        userManagementPage.userManagementLink.click();
+    }
+
+
+    @And("user clicks on modifiedDate")
+    public void userClicksOnModifiedDate() {
+        userManagementPage.modifiedDate.click();
+    }
+
+    @And("user clicks on deactivated button to activate new user")
+    public void userClicksOnDeactivatedButtonToActivateNewUser() {
+        userManagementPage.activationButton.click();
+    }
+
+    @Then("system confirm that activation has been completed")
+    public void systemConfirmThatActivationHasBeenCompleted() throws InterruptedException {
+        Driver.wait(1);
+
+        WebElement newUser=Driver.getDriver().findElement(By.xpath("//div[text()='A user is updated with identifier "+userName+"']"));
+        Assert.assertTrue(newUser.isDisplayed());
     }
 }
