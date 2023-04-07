@@ -25,7 +25,7 @@ public class CreateOrEditACustomerPage {
 
     @FindBy(id = "tp-customer-account")  public WebElement account;
 
-    @FindBy(id = "search-ssn")  public WebElement ssn;
+    @FindBy(id = "search-ssn")  public WebElement searchSsn;
 
     @FindBy(xpath = "//button[text()='Search']")  public WebElement selectButton;
 
@@ -37,8 +37,17 @@ public class CreateOrEditACustomerPage {
 
     @FindBy(id = "tp-customer-city")  public WebElement city;
 
-    @FindBy(xpath = "//div[@role='alert']")
-    public WebElement alert;
+    @FindBy(xpath = "//div[@role='alert']")  public WebElement alert;
+
+    @FindBy(id = "tp-customer-firstName") public WebElement firstName;
+
+    @FindBy(id = "tp-customer-lastName")  public WebElement lastName;
+
+    @FindBy(id = "tp-customer-ssn") public WebElement ssn;
+
+    @FindBy(id = "tp-customer-mobilePhoneNumber")  public WebElement mobilePhoneNumber;
+
+    @FindBy(id = "tp-customer-email")  public WebElement email;
 
 }
 

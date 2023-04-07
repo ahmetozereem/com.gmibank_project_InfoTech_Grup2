@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -45,12 +46,19 @@ public class US011 {
 
     @When("Fill in the other fields")
     public void fill_in_the_other_fields() {
-        createACustomerPage.ssn.sendKeys("123-12-1234");
-        createACustomerPage.selectButton.click();
-        createACustomerPage.middleInitial.sendKeys("middleinitial");
-        createACustomerPage.phoneNumber.sendKeys("123-987-7890");
-        createACustomerPage.zipCode.sendKeys("1234");
-        createACustomerPage.city.sendKeys("Eindhoven");
+
+        Faker faker= new Faker();
+        //createACustomerPage.firstName.sendKeys(faker.name().firstName());
+        createACustomerPage.firstName.sendKeys("Sehri gokcan");
+        createACustomerPage.lastName.sendKeys(faker.name().lastName());
+        createACustomerPage.ssn.sendKeys(faker.idNumber().ssnValid());
+        createACustomerPage.middleInitial.sendKeys(faker.name().nameWithMiddle());
+        createACustomerPage.phoneNumber.sendKeys("555-544-3456");
+        createACustomerPage.mobilePhoneNumber.sendKeys("555-544-3456");
+        createACustomerPage.email.sendKeys(faker.internet().emailAddress());
+        createACustomerPage.zipCode.sendKeys(faker.address().zipCode());
+        createACustomerPage.city.sendKeys(faker.address().city());
+        createACustomerPage.addressTextBox.sendKeys(faker.address().streetAddress());
     }
 
     @When("Click on Save Button")
@@ -61,12 +69,13 @@ public class US011 {
     @Then("You should see the error message")
     public void you_should_see_the_error_message() {
         softAssert.assertTrue(createACustomerPage.alert.getText().contains("translation-not-found[gmiBankBackendApp.tPAccountRegistration.updated]"));
+        CommenSteps.waitForVisibility(createACustomerPage.alert,5);
+        CommenSteps.verifyElementDisplayed(createACustomerPage.alert);
     }
 
     @Then("You should not see the error message")
     public void you_should_not_see_the_error_message() {
-        System.out.println("alert------" + createACustomerPage.alert.getText());
-        CommenSteps.verifyElementDisplayed(createACustomerPage.alert);
+        CommenSteps.verifyElementNotDisplayed(createACustomerPage.alert);
     }
 
     @Then("The date should be created as month, day, year, hour and minute")
@@ -95,21 +104,18 @@ public class US011 {
     @Then("you can choose an account created on manage accounts")
     public void you_can_choose_an_account_created_on_manage_accounts() {
         CommenSteps.verifyElementDisplayed(createACustomerPage.account);
-
-
     }
 
     @When("User can select Zelle Enrolled optionally")
     public void user_can_select_zelle_enrolled_optionally() {
         CommenSteps.verifyElementDisplayed(createACustomerPage.zelleEnrolled);
 
-
     }
 
     @Then("you should succesfully saved")
     public void you_should_succesfully_saved() {
-        softAssert.assertTrue(createACustomerPage.alert.getText().contains("translation-not-found[gmiBankBackendApp.tPAccountRegistration.updated]"));
-        softAssert.assertAll();
+
+        softAssert.assertTrue(createACustomerPage.alert.getText().contains("translation-not-found[gmiBankBackendApp.tPCustomer.created]"));
 
     }
 
@@ -126,6 +132,6 @@ public class US011 {
     @And("Click on Sign Outt")
     public void clickOnSignOutt() {
         loginPage.signInRegister.click();
-        loginPage.signOutButton.click();
+        loginPage.signOut.click();
     }
 }

@@ -31,7 +31,6 @@ Feature: US_011 Date should be created on the time of account creation
     Then The date should be created as month, day, year, hour and minute
     And Click on Sign Out
 
-
   Scenario: TC04_User can choose a user from the registration and it cannot be blank
     Then You can choose a user from the registration
     And Click on Sign Out
@@ -46,12 +45,12 @@ Feature: US_011 Date should be created on the time of account creation
     Then you can choose an account created on manage accounts
     And Click on Sign Out
 
+
   Scenario: TC07_User can select Zelle Enrolled optionally and save it
     When User can select Zelle Enrolled optionally
     And Fill in the other fields
     And Click on Save button
     Then you should succesfully saved
-    And Click on Sign Outt
 
 
 
