@@ -35,6 +35,7 @@ public class US008 {
 
     @And("User types the valid username in the relevant field")
     public void userTypesTheValidUsernameInTheRelevantField() {
+        CommenSteps.waitForClickablility(signInPage.userNameTextBox,5);
         signInPage.userNameTextBox.sendKeys(ConfigReader.getProperty("ibrahimsTestUserName"));
     }
 

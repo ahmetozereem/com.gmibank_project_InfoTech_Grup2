@@ -25,6 +25,10 @@ public class Login_Page {
 
     @FindBy(css="li[id='entity-menu'] a[class='dropdown-toggle nav-link'] span") public WebElement myOperations;
 
+    @FindBy (xpath = "//span[normalize-space()='Manage Customers']") public WebElement manageCustomers;
+
+    @FindBy (xpath = "//span[normalize-space()='Manage Accounts']") public WebElement manageAccounts;
+
     @FindBy(css="div[role='alert'] span strong") public WebElement errorMessage;
 
     @FindBy(xpath="//span[normalize-space()='Did you forget your password?']") public WebElement didYouForgetYourPassword;

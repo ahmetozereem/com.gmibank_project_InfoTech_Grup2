@@ -12,7 +12,7 @@ public class Hooks {
     static int stepCount;
     @Before
     public void setup() {
-        //Driver.getDriver();
+//        Driver.getDriver();
     }
     @After
     public void teardown(Scenario scenario) {
