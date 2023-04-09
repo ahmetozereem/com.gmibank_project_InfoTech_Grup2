@@ -106,6 +106,9 @@ public class RegisterPage {
     @FindBy(xpath = "//input[@id='email']")
     public WebElement emailinvalid;
 
+    @FindBy(xpath = "//div[@class='jh-card card']//li[4]")
+    public  WebElement strengthbar;
+
 
 
 
