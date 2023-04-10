@@ -8,10 +8,8 @@ import utilities.Driver;
 public class ManageCustomersPage {
     public ManageCustomersPage() {PageFactory.initElements(Driver.getDriver(), this);}
 
-    @FindBy (css = "a[id=jh-create-entity]")
+    @FindBy (css = "a[id='jh-create-entity']")
     public WebElement createANewCustomer;
-
-//*[@id="tp-customer-country"]/option[70]
 
 }
 
