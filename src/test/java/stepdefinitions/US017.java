@@ -14,20 +14,20 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 public class US017 {
-
-    String ssn;
-    String firstname;
-    String lastname;
-    String address;
-    String phone;
-    String userName;
-    String email;
-    String password;
+    Faker faker=new Faker();
+    String ssn=faker.idNumber().ssnValid();;
+    String firstname="Ali";
+    String lastname="Kundilli";
+    String  address=faker.address().streetAddress();
+    String phone=faker.phoneNumber().cellPhone();
+    String userName=firstname+lastname;
+    String email=firstname+lastname+"@gmail.com";
+    String password="February28.Month";
 
 
     RegistrationPage page=new RegistrationPage();
     UserManagementPage userManagementPage=new UserManagementPage();
-    Faker faker=new Faker();
+
 
 
     @Given("user goes to gmibank web address")
@@ -50,14 +50,7 @@ public class US017 {
 
     @And("user fills out all credentials")
     public void userFillsOutAllCredentials() {
-        ssn=faker.idNumber().ssnValid();
-        firstname=faker.name().firstName();
-        lastname=faker.name().lastName();
-        address=faker.address().streetAddress();
-        phone=faker.phoneNumber().cellPhone();
-        userName=firstname+lastname;
-        email=firstname+lastname+"@gmail.com";
-        password=faker.internet().password(12,12,true,true,true);
+
         System.out.println(firstname+" "+lastname+"\n"+userName);
 
         page.ssnBox.sendKeys(ssn);
@@ -116,20 +109,93 @@ public class US017 {
 
 
     @And("user clicks on modifiedDate")
-    public void userClicksOnModifiedDate() {
+    public void userClicksOnModifiedDate() throws InterruptedException {
+        Driver.wait(1);
         userManagementPage.modifiedDate.click();
     }
 
     @And("user clicks on deactivated button to activate new user")
-    public void userClicksOnDeactivatedButtonToActivateNewUser() {
+    public void userClicksOnDeactivatedButtonToActivateNewUser() throws InterruptedException {
+        Driver.wait(2);
         userManagementPage.activationButton.click();
     }
 
     @Then("system confirm that activation has been completed")
     public void systemConfirmThatActivationHasBeenCompleted() throws InterruptedException {
-        Driver.wait(1);
+        Driver.wait(2);
 
-        WebElement newUser=Driver.getDriver().findElement(By.xpath("//div[text()='A user is updated with identifier "+userName+"']"));
-        Assert.assertTrue(newUser.isDisplayed());
+        Assert.assertTrue(userManagementPage.activationStuation.isDisplayed());
+    }
+
+    @And("user clicks on administrator menu")
+    public void userClicksOnAdministratorMenu() {
+        userManagementPage.administratorMenu.click();
+    }
+
+    @And("user clicks on sign out link")
+    public void userClicksOnSignOutLink() throws InterruptedException {
+        userManagementPage.signOutLink.click();
+        Driver.wait(1);
+    }
+
+    @And("user clicks on view button")
+    public void userClicksOnViewButton() throws InterruptedException {
+        Driver.wait(2);
+        userManagementPage.viewButton.click();
+    }
+
+    @Then("system confirm that information of user can be seen")
+    public void systemConfirmThatInformationOfUserCanBeSeen() throws InterruptedException {
+        Driver.wait(1);
+        System.out.println("//b[text()='"+firstname+lastname+"']");
+        WebElement userElement=Driver.getDriver().findElement(By.xpath("//b[text()='alikundilli']"));
+
+        Assert.assertTrue(userElement.isDisplayed());
+
+    }
+
+
+    @When("user clicks on edit button")
+    public void userClicksOnEditButton() {
+
+        userManagementPage.editButton.click();
+    }
+
+    @And("user edits email")
+    public void userEditsEmail() {
+
+        userManagementPage.emailBox.clear();
+        userManagementPage.emailBox.sendKeys("alikundilli@yandex.com");
+    }
+
+    @And("user clicks on save button")
+    public void userClicksOnSaveButton() {
+
+        userManagementPage.saveButton.click();
+    }
+
+    @Then("system confirm that editing has been completed")
+    public void systemConfirmThatEditingHasBeenCompleted() throws InterruptedException {
+        Driver.wait(2);
+
+        Assert.assertTrue(userManagementPage.editUpdate.isDisplayed());
+    }
+
+    @And("user clicks on delete button")
+    public void userClicksOnDeleteButton() {
+
+        userManagementPage.deleteButton.click();
+    }
+
+    @And("user clicks on delete button{int}")
+    public void userClicksOnDeleteButton(int arg0) {
+        userManagementPage.deleteButton2.click();
+    }
+
+    @Then("system confirms that the new user has been deleted")
+    public void systemConfirmsThatTheNewUserHasBeenDeleted() throws InterruptedException {
+        Driver.wait(2);
+
+        Assert.assertTrue(userManagementPage.deletedUpdate.isDisplayed());
     }
 }
