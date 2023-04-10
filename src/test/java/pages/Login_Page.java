@@ -63,7 +63,8 @@ public class Login_Page {
 
     @FindBy(xpath = "//span[text()='Manage Accounts']") public WebElement manageAccounts;
 
-
+    @FindBy(xpath = "//span[text()='Sign out']")
+    public WebElement signOut;
 
 
 

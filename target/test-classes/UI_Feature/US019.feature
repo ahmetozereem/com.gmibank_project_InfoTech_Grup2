@@ -1,10 +1,10 @@
-@US013
-Feature: US_013 An Employee can create a new Account
+@US019
+Feature: US_019 System should allow Admin to create a new Account
 
   Background:
     Given Go to the GmiBank home page
     When you should navigate to sign in page
-    And  Provide the username of the applicant as employee
+    And  Provide the username of the applicant as admin
     And Provide the password of the applicant
     And  Click on Sign In
     And Click on My Operations
