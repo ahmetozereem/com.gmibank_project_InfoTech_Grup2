@@ -651,4 +651,16 @@ public class CommenSteps {
         String message =inputBox.getAttribute("validationMessage");
         return message;
     }
+    public static String findLocationOfElementInSpecificTableCell(int customer, int info, int button){
+
+        String xPath = "//*[@class='table-responsive'] /table/tbody/tr["+customer+"]/td["+info+"]/div/a["+button+"]";
+        return xPath;
+
+    }
+    public static String findLocationOfElementInSpecificTableCell(int customer, int button){
+
+        String xPath = "//*[@class='table-responsive'] /table/tbody/tr["+customer+"]/td/div/a["+button+"]";
+        return xPath;
+
+    }
 }

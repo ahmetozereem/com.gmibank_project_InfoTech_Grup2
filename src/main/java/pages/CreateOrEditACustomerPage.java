@@ -19,7 +19,9 @@ public class CreateOrEditACustomerPage {
     @FindBy (xpath = "//*[@id='tp-customer-country']/option[70]") public WebElement countryDropDownMenuUSA;
     @FindBy (css = "input[id='tp-customer-state']") public WebElement stateTextBox;
     @FindBy (css = "select[id='tp-customer-user']") public WebElement userDropDownMenu;
+
     @FindBy (css = "button[id='save-entity']") public WebElement saveButton;
+
     @FindBy (css = "a[id='cancel-save']") public WebElement backButton;
     @FindBy (css = "li[id='account-menu']") public WebElement userAccountDownMenu;
     @FindBy(xpath="//span[normalize-space()='Sign out']") public WebElement signOutButton;
