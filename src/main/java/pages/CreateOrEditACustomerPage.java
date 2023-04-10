@@ -27,8 +27,37 @@ public class CreateOrEditACustomerPage {
     @FindBy(xpath="//span[normalize-space()='Sign out']") public WebElement signOutButton;
 
 
+    @FindBy(id = "tp-customer-createDate") public WebElement createDate;
 
+    @FindBy(xpath = "//select[@name='user.id']")  public WebElement user;
 
+    @FindBy(id = "tp-customer-zelleEnrolled")  public WebElement zelleEnrolled;
+
+    @FindBy(id = "tp-customer-account")  public WebElement account;
+
+    @FindBy(id = "search-ssn")  public WebElement searchSsn;
+
+    @FindBy(xpath = "//button[text()='Search']")  public WebElement selectButton;
+
+    @FindBy(id = "tp-customer-middleInitial")  public WebElement middleInitial;
+
+    @FindBy(id = "tp-customer-phoneNumber")  public WebElement phoneNumber;
+
+    @FindBy(id = "tp-customer-zipCode")  public WebElement zipCode;
+
+    @FindBy(id = "tp-customer-city")  public WebElement city;
+
+    @FindBy(xpath = "//div[@role='alert']")  public WebElement alert;
+
+    @FindBy(id = "tp-customer-firstName") public WebElement firstName;
+
+    @FindBy(id = "tp-customer-lastName")  public WebElement lastName;
+
+    @FindBy(id = "tp-customer-ssn") public WebElement ssn;
+
+    @FindBy(id = "tp-customer-mobilePhoneNumber")  public WebElement mobilePhoneNumber;
+
+    @FindBy(id = "tp-customer-email")  public WebElement email;
 
 }
 
