@@ -25,6 +25,10 @@ public class Login_Page {
 
     @FindBy(css="li[id='entity-menu'] a[class='dropdown-toggle nav-link'] span") public WebElement myOperations;
 
+    @FindBy (xpath = "//span[normalize-space()='Manage Customers']") public WebElement manageCustomers;
+
+    @FindBy (xpath = "//span[normalize-space()='Manage Accounts']") public WebElement manageAccounts;
+
     @FindBy(css="div[role='alert'] span strong") public WebElement errorMessage;
 
     @FindBy(xpath="//span[normalize-space()='Did you forget your password?']") public WebElement didYouForgetYourPassword;
@@ -39,6 +43,9 @@ public class Login_Page {
 
     @FindBy(xpath="//span[normalize-space()='User Info']") public WebElement userInfo;
 
+    @FindBy (xpath = "//span[normalize-space()='Password']") public WebElement password;
+    @FindBy(xpath="//span[normalize-space()='Sign out']") public WebElement signOutButton;
+
     @FindBy(css="#firstName") public WebElement firstNameOnUserSettingsPage;
 
     @FindBy(css="#lastName") public WebElement lastNameOnUserSettingsPage;
@@ -51,7 +58,7 @@ public class Login_Page {
 
     @FindBy(css=".invalid-feedback") public WebElement errorMessageOnUserSettingsPageForEmail;
 
-    @FindBy(xpath="//span[normalize-space()='Sign out']") public WebElement signOutButton;
+
 
 
 

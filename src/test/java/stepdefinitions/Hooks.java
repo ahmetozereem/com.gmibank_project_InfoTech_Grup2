@@ -12,7 +12,7 @@ public class Hooks {
     static int stepCount;
     @Before
     public void setup() {
-        //Driver.getDriver();
+//        Driver.getDriver();
     }
     @After
     public void teardown(Scenario scenario) {
@@ -31,7 +31,7 @@ public class Hooks {
             picture = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(picture, "image/png", "passed" + scenario.getName());
         }
-       //Driver.closeDriver();
+       Driver.closeDriver();
     }
 
 }
