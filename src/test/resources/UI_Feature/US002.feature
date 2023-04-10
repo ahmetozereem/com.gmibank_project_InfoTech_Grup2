@@ -45,7 +45,7 @@ Feature: System should not allow anyone to register with invalid credentials
           And User puts a special character other than "-" between telephone  numbers
           Then User checks the  telephone number other failed
         @US002
-        @Third
+        @Fourth
           Scenario: email id cannot be created without "@" sign and "." extensions
           When User clicks the user button
           And User clicks on register tab

@@ -37,5 +37,6 @@ Feature: Registration page should restrict password usage to a secure
 
        When User clicks the user button
        And User clicks on register tab
-       And User puts  new passwordThen check that the entered password is at least 7 long
+       And User puts  new password
+       Then check that the entered password is at least 7 long
 
