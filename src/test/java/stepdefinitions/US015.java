@@ -12,7 +12,6 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 import java.util.List;
-import java.util.WeakHashMap;
 
 public class US015 {
 Login_Page loginPage= new Login_Page();

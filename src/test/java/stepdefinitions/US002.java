@@ -3,12 +3,9 @@ package stepdefinitions;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.checkerframework.checker.units.qual.A;
-import org.checkerframework.checker.units.qual.K;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.RegisterPage;
-import utilities.CommenSteps;
 import utilities.Driver;
 
 public class US002 {
