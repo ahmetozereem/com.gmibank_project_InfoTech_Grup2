@@ -12,7 +12,6 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 import java.util.List;
-import java.util.WeakHashMap;
 
 public class US015 {
 Login_Page loginPage= new Login_Page();
@@ -28,8 +27,8 @@ Manage_Accounts_Page manageAccountsPage= new Manage_Accounts_Page();
 
     }
 
-    @When("Provide the username of the applicant")
-    public void provide_the_username_of_the_applicant() {
+    @When("Provide the username of the applicant as user")
+    public void provide_the_username_of_the_applicant_as_user() {
         loginPage.userName.sendKeys(ConfigReader.getProperty("userSehri"));
     }
 
