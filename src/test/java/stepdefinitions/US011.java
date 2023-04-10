@@ -4,8 +4,6 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 import pages.CreateOrEditACustomerPage;
@@ -13,13 +11,6 @@ import pages.Login_Page;
 import pages.ManageCustomersPage;
 import utilities.CommenSteps;
 import utilities.ConfigReader;
-import utilities.Driver;
-
-import java.awt.dnd.DragGestureEvent;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
 public class US011 {
     SoftAssert softAssert = new SoftAssert();
