@@ -15,7 +15,7 @@ import utilities.ConfigReader;
 import utilities.Driver;
 public class US017 {
     Faker faker=new Faker();
-    String ssn=faker.idNumber().ssnValid();;
+    String ssn=faker.idNumber().ssnValid();
     String firstname="Ali";
     String lastname="Kundilli";
     String  address=faker.address().streetAddress();
@@ -142,8 +142,8 @@ public class US017 {
     public void userClicksOnDeleteButton() {
         userManagementPage.deleteButton.click();
     }
-    @And("user clicks on delete button{int}")
-    public void userClicksOnDeleteButton(int arg0) {
+    @And("user clicks on delete buttonTwo")
+    public void userClicksOnDeleteButtonTwo() {
         userManagementPage.deleteButton2.click();
     }
     @Then("system confirms that the new user has been deleted")

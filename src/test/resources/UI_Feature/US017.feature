@@ -38,8 +38,8 @@ Feature: System should allow the Admin to manage users
     Then system confirm that information of user can be seen
     And user clicks on administrator menu
     And user clicks on sign out link
-  Scenario: Editing the new user
 
+  Scenario: Editing the new user
     When user clicks on account menu button
     And user clicks on sign in link
     And user sends "admin2023" to username box
@@ -54,8 +54,8 @@ Feature: System should allow the Admin to manage users
     Then system confirm that editing has been completed
     And user clicks on administrator menu
     And user clicks on sign out link
-  Scenario: Deleting the new user
 
+  Scenario: Deleting the new user
     When user clicks on account menu button
     And user clicks on sign in link
     And user sends "admin2023" to username box
@@ -65,7 +65,7 @@ Feature: System should allow the Admin to manage users
     And user clicks on user management link
     And user clicks on modifiedDate
     And user clicks on delete button
-    And user clicks on delete button2
+    And user clicks on delete buttonTwo
     Then system confirms that the new user has been deleted
 
   Scenario: Creating a new employee
@@ -134,7 +134,7 @@ Feature: System should allow the Admin to manage users
     And user clicks on user management link
     And user clicks on modifiedDate
     And user clicks on delete button
-    And user clicks on delete button2
+    And user clicks on delete buttonTwo
     Then system confirms that the new user has been deleted
 
   Scenario: Creating a new manager
@@ -203,7 +203,7 @@ Feature: System should allow the Admin to manage users
     And user clicks on user management link
     And user clicks on modifiedDate
     And user clicks on delete button
-    And user clicks on delete button2
+    And user clicks on delete buttonTwo
     Then system confirms that the new user has been deleted
 
   Scenario: Creating a new admin
@@ -272,5 +272,5 @@ Feature: System should allow the Admin to manage users
     And user clicks on user management link
     And user clicks on modifiedDate
     And user clicks on delete button
-    And user clicks on delete button2
+    And user clicks on delete buttonTwo
     Then system confirms that the new user has been deleted
