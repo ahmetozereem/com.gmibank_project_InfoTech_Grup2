@@ -242,6 +242,16 @@ public class CommenSteps {
         }
     }
 
+
+    public static void verifyElementNotDisplayed(WebElement element) {
+        try {
+            Assert.assertFalse( element.isDisplayed());
+        } catch (NoSuchElementException e) {
+            e.printStackTrace();
+
+        }
+    }
+
     /**
      * This methods casts the driver to a JavascriptExecutor and returns it
      *
@@ -650,5 +660,17 @@ public class CommenSteps {
     public static String getPlease_fill_in_this_field_Message(WebElement inputBox){
         String message =inputBox.getAttribute("validationMessage");
         return message;
+    }
+    public static String findLocationOfElementInSpecificTableCell(int customer, int info, int button){
+
+        String xPath = "//*[@class='table-responsive'] /table/tbody/tr["+customer+"]/td["+info+"]/div/a["+button+"]";
+        return xPath;
+
+    }
+    public static String findLocationOfElementInSpecificTableCell(int customer, int button){
+
+        String xPath = "//*[@class='table-responsive'] /table/tbody/tr["+customer+"]/td/div/a["+button+"]";
+        return xPath;
+
     }
 }
