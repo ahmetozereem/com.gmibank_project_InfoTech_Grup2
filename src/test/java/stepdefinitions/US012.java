@@ -13,6 +13,7 @@ public class US012 {
     SignInPage signInPage = new SignInPage();
     Login_Page loginPage = new Login_Page();
     ManageCustomersPage manageCustomersPage = new ManageCustomersPage();
+    CreateOrEditACustomerPage createOrEditACustomerPage = new CreateOrEditACustomerPage();
 
     @When("Employee clicks dropdown account menu")
     public void employeeClicksDropdownAccountMenu() {
@@ -64,7 +65,43 @@ public class US012 {
     @Then("Employee validates view option button all for all customers")
     public void employeeValidatesViewOptionButtonAllForAllCustomers() {
         boolean expectedValue = true;
-        boolean actualValue = manageCustomersPage.customersFirstLineButtonGroup.getText().contains("View");
+        boolean actualValue = manageCustomersPage.customersFirstLineViewButton.isDisplayed();
         Assert.assertEquals(expectedValue,actualValue);
+
+        boolean expectedValueTen = true;
+        boolean actualValueTen = manageCustomersPage.customersTenthLineViewButton.isDisplayed();
+        Assert.assertEquals(expectedValueTen,actualValueTen);
+
+        boolean expectedValueTwenty = true;
+        boolean actualValueTwenty = manageCustomersPage.customersTwentiethLineViewButton.isDisplayed();
+        Assert.assertEquals(expectedValueTwenty,actualValueTwenty);
+    }
+
+    @And("Employee clicks any customer edit button in the customer table")
+    public void employeeClicksAnyCustomerEditButtonInTheCustomerTable() {
+        manageCustomersPage.customersTenthLineEditButton.click();
+    }
+
+    @Then("Employee validates that the edit customers button is available with the data on the next page")
+    public void employeeValidatesThatTheEditCustomersButtonIsAvailableWithTheDataOnTheNextPage() {
+        CommenSteps.verifyElementDisplayed(createOrEditACustomerPage.customerIdTextBox);
+    }
+
+    @Then("Employee validates view edit button all for all customers")
+    public void employeeValidatesViewEditButtonAllForAllCustomers() {
+        CommenSteps.verifyElementDisplayed(manageCustomersPage.customersFirstLineEditButton);
+        CommenSteps.verifyElementDisplayed(manageCustomersPage.customersTenthLineEditButton);
+        CommenSteps.verifyElementDisplayed(manageCustomersPage.customersTwentiethLineEditButton);
+    }
+
+    @And("Employee clicks any customer delete button in the customer table")
+    public void employeeClicksAnyCustomerDeleteButtonInTheCustomerTable() {
+        manageCustomersPage.customersFirstLineDeleteButton.click();
+    }
+
+    @Then("Employee sees a question message about wanting to delete")
+    public void employeeSeesAQuestionMessageAboutWantingToDelete() {
+        CommenSteps.waitForVisibility(manageCustomersPage.deleteQuestionDialog,5);
+        Assert.assertTrue(manageCustomersPage.deleteQuestionDialog.getText().contains("Are you sure you want to delete Customer"));
     }
 }

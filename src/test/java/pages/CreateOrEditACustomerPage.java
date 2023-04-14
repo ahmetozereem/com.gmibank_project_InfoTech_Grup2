@@ -48,6 +48,7 @@ public class CreateOrEditACustomerPage {
     @FindBy(id = "tp-customer-city")  public WebElement city;
 
     @FindBy(xpath = "//div[@role='alert']")  public WebElement alert;
+    @FindBy (css = "input[id='tp-customer-id']") public WebElement customerIdTextBox;
 
     @FindBy(id = "tp-customer-firstName") public WebElement firstName;
 
