@@ -112,7 +112,7 @@ public class US002 {
     public void userPutsASpecialCharacterOtherThanBetweenNumbers(String arg0) throws InterruptedException {
 
         us001.ssnLogin.sendKeys("123?12!1234"+Keys.TAB);
-        Driver.wait(3);
+
     }
 
     @Then("User checks the  social security number other failed")
@@ -141,7 +141,7 @@ public class US002 {
     public void userPutsASpecialCharacterWithoutAnd(String arg0, String arg1) throws InterruptedException {
 
         us001.emailinvalid.sendKeys("omerfarukyeler&hotmail^com",Keys.TAB);
-        Driver.wait(2);
+
     }
 
     @Then("User checks the  email other failed")

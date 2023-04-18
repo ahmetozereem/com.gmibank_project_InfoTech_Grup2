@@ -30,7 +30,6 @@ public class US003 {
 
         us001.password.sendKeys("ıntegral26?K");
 
-
     }
 
     @And("User puts a {int} digit in the new password")
